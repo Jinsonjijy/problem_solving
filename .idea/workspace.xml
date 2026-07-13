@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfa1affb-85df-4397-ac03-813622da8f18" name="Changes" comment="" />
+    <list default="true" id="bfa1affb-85df-4397-ac03-813622da8f18" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,18 +30,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.drawing_sample.executor": "Run",
-    "Python.generate_binary.executor": "Run",
-    "Python.power_set.executor": "Run",
-    "Python.reverse_stack.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "feature",
-    "last_opened_file_path": "C:/Users/jinso/Desktop/PROBLEM SOLVING"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.drawing_sample.executor&quot;: &quot;Run&quot;,
+    &quot;Python.generate_binary.executor&quot;: &quot;Run&quot;,
+    &quot;Python.power_set.executor&quot;: &quot;Run&quot;,
+    &quot;Python.reverse_stack.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jinso/Desktop/PROBLEM SOLVING&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.power_set">
     <configuration name="drawing_sample" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PROBLEM SOLVING" />
