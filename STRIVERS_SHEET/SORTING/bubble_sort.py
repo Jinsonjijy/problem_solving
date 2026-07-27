@@ -1,7 +1,7 @@
 
 """""
 
-this is the implementation of the bubble sort algorithm i figured it myself 
+this is the implementation of the bubble sort algorithm i figured it myself
 """
 
 def bubble_sort(arr):
