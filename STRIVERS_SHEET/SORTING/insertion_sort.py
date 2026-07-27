@@ -1,7 +1,7 @@
 """"
 lets create a insertion sort algorithm
 
-
+watched the leetcode insertion sort algorithm
 """
 def insertion_sort(arr):
     for i in range(1,len(arr)):
