@@ -14,8 +14,9 @@ target=int(input())
 dict1={}
 count=1
 for ind,val in enumerate(cashes):
-    if target-val in dict:
+    if (target-val) in dict1:
         count+=1
-    dict[val]=ind
+    else:
+        dict1[val]=ind
 if count>1:
     print(count)
