@@ -13,5 +13,12 @@ if __name__=="__main__":
     dp[0]=0
     dp[1]=1
     for i in range(2,n+1):
-        dp[i]=dp[i-1]+dp[i-2]
+        dp[i]=dp[i-1]+dp[i-2]# we can reduce this by just using the variable
     print(dp[n])
+    a=0
+    b=1
+    for i in range(2,n+1):
+        c=a+b
+        a=b
+        b=c
+    print(c)
