@@ -29,7 +29,7 @@ Explanation: There are three ways to climb to the top.
 3. 2 steps + 1 step
 """
 def climbing_stairs(n,dp):
-    if n==0:
+    if n==0:# here the edge case is if we stand in the 0 only step it is count as 1 step because that is how it works
         return 1
     if n==1:
         return 1
