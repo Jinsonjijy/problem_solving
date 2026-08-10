@@ -5,7 +5,7 @@ of bucket sort algorithm
 it work well
 
          time complexity is =>O(n^2)
-         space complexity is =>O(n+m+n)
+         space complexity is =>O(n+m+n) because it is using 3 array
 """
 
 def bucket_sorting(arr):
