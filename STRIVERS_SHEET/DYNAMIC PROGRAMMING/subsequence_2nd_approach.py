@@ -18,26 +18,23 @@ Input:  [2, 1, 4, 9]
 Output: 11
 Explanation:
 Subsequence {2,9} gives maximum sum
+
 """
 def subsequence(arr):
-    res=[]
     dp=[-1]*len(arr)
-    def backtracking(i,v,arr,n):
-        if i>=n:
-            sum1=sum(v[:])
-            res.append(sum1)
-            return
-        if dp[i]!=-1:
-            return dp[i]
-        v.append(arr[i])
-        backtracking(i+2,v,arr,n)
-        v.pop()
-        backtracking(i+1,v,arr,n)
-    backtracking(0,[],arr,len(arr))
-    return max(sum(val) for val in res)
+
+    def backtracking(ind):
+        if ind==0:
+            return arr[ind]
+        if ind<=1:
+            return 0
+        if dp[ind]!=-1:
+            return dp[ind]
+        pick=arr[ind]+backtracking(ind-2)
+        no_pick=0+backtracking(ind-1)
+        dp[ind]=max(pick,no_pick)
+        return dp[ind]
+    print(backtracking(len(arr)-1))
 if __name__=="__main__":
     arr=list(map(int,input().split(",")))
-    print(subsequence(arr))
-"""
-in this approach making the dp array is hard so i am following strivers program
-"""
+    subsequence(arr)
