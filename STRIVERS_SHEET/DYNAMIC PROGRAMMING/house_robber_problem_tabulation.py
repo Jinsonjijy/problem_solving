@@ -19,22 +19,15 @@ Output: 11
 Explanation:
 Subsequence {2,9} gives maximum sum
 
-"""
-def subsequence(arr):
-    dp=[-1]*len(arr)
 
-    def backtracking(ind):
-        if ind==0:
-            return arr[ind]
-        if ind==1:
-            return max(arr[0],arr[1])
-        if dp[ind]!=-1:
-            return dp[ind]
-        pick=arr[ind]+backtracking(ind-2)
-        no_pick=0+backtracking(ind-1)
-        dp[ind]=max(pick,no_pick)
-        return dp[ind]
-    print(backtracking(len(arr)-1))
+"""
 if __name__=="__main__":
-    arr=list(map(int,input().split(",")))
-    subsequence(arr)
+    arr=list(map(int,input().split(" ")))
+    dp=[0]*len(arr)
+    dp[0]=arr[0]
+    dp[1]=max(arr[0],arr[1])
+    for i in range(2,len(arr)):
+        pick=arr[i]+dp[i-2] #if we take the curr element the we also take i-2th element so it wont be adjascent
+        no_pick=dp[i-1] #if we dont take the curr elelent then take previous element
+        dp[i]=max(pick,no_pick)
+    print(dp[len(arr)-1])
