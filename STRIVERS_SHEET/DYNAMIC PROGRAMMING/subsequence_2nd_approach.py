@@ -34,7 +34,14 @@ def subsequence(arr):
         no_pick=0+backtracking(ind-1)
         dp[ind]=max(pick,no_pick)
         return dp[ind]
-    print(backtracking(len(arr)-1))
+    return backtracking(len(arr)-1)
 if __name__=="__main__":
-    arr=list(map(int,input().split(",")))
-    subsequence(arr)
+    arr=list(map(int,input().split(" ")))
+    arr1=[]
+    arr2=[]
+    for i in range(1,len(arr)):
+        arr1.append(arr[i])
+    for i in range(0,len(arr)-1):
+        arr2.append(arr[i])
+    max_value=max(subsequence(arr1),subsequence(arr2))
+    print(max_value)
