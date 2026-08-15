@@ -13,4 +13,4 @@ def insertion_sort(arr):
             j=j-1
 arr=list(map(int,input().split(" ")))
 insertion_sort(arr)
-print(arr)
+print(*arr,sep="->")
