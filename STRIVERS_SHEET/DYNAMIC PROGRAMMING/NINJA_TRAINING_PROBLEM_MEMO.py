@@ -41,8 +41,32 @@ This gives the optimal points.
 
 
 """
+def training(arr):
+    dp=[[0]*4]*len(arr)
+    def backtracking(day,last):
+        if day ==0:
+            maxi=0
+            for task in range(0,3):
+                if task!=last:
+                    point=arr[0][task]
+                    maxi=max(point,maxi)
+            return maxi
+        maxi=0
+        for task in range(3):
+            if task!=last:
+                point=arr[day][task]+backtracking(day-1,task)
+                maxi=max(point,maxi)
+        return maxi
+    return backtracking(len(arr)-1,3)
+
+
+
 day=int(input("enter the day"))
 arr=[]
 for i in range(day):
-    arr[i]=list(map(int,input().split("")))
-    print("/n")
+    row=[]
+    for j in range(3):
+        row.append(int(input()))
+    arr.append(row)
+print(*arr,sep="\n")
+print(training(arr))

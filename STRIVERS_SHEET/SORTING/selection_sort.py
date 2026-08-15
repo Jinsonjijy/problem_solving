@@ -13,4 +13,4 @@ def selection_sort(arr):
     return arr[::-1]
 if __name__=="__main__":
     arr=list(map(int,input().split(" ")))
-    print(selection_sort(arr))
+    print(*selection_sort(arr),sep=",")
