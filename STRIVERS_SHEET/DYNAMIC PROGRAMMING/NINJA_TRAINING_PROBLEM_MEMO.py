@@ -37,12 +37,12 @@ Day 2: stealth training = 20
 Day 3: running = 200
 Total = 70 + 20 + 200 = 290
 This gives the optimal points.
-
+over commed the overlapping subproblem
 
 
 """
 def training(arr):
-    dp=[[0]*4]*len(arr)
+    dp=[[-1]*4]*len(arr)
     def backtracking(day,last):
         if day ==0:
             maxi=0
@@ -52,11 +52,14 @@ def training(arr):
                     maxi=max(point,maxi)
             return maxi
         maxi=0
+        if dp[day][last]!=-1:
+            return dp[day][last]
         for task in range(3):
             if task!=last:
                 point=arr[day][task]+backtracking(day-1,task)
                 maxi=max(point,maxi)
-        return maxi
+        dp[day][last]=maxi
+        return dp[day][last]
     return backtracking(len(arr)-1,3)
 
 
