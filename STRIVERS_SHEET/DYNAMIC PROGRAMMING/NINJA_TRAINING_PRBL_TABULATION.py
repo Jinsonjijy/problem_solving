@@ -48,7 +48,7 @@ if __name__=="__main__":
         row=list(map(int,input().split(" ")))
         arr.append(row)
         row=[]
-    dp=[[0]*4]*day
+    dp=[[0]*4 for _ in range(day)]#so this create a specific array ok so not [[0]*4]*day it creat same referenced list inside the list
     print(dp)
     print(*arr,sep="\n")
     dp[0][0]=max(arr[0][1],arr[0][2])
@@ -56,12 +56,12 @@ if __name__=="__main__":
     dp[0][2]=max(arr[0][0],arr[0][1])
     dp[0][3]=max(arr[0][0],max(arr[0][1],arr[0][2]))
 
-    for day in range(len(arr)):
+    for day in range(1,len(arr)):
         for last in range(4):#here the prev activity 0,1,2 and 3 if no acitivity
             maxi=0
             for task in range(3):
                 if task!=last:
-                    activity=arr[day][task]+dp[day-1][last]
+                    activity=arr[day][task]+dp[day-1][task]
                     maxi=max(activity,maxi)
             dp[day][last]=maxi
     print(dp[len(arr)-1][3])
