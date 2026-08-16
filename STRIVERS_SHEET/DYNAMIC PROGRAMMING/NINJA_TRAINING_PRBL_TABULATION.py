@@ -48,8 +48,20 @@ if __name__=="__main__":
         row=list(map(int,input().split(" ")))
         arr.append(row)
         row=[]
-        dp=[[0]*4]*len(arr)
+    dp=[[0]*4]*day
+    print(dp)
     print(*arr,sep="\n")
+    dp[0][0]=max(arr[0][1],arr[0][2])
+    dp[0][1]=max(arr[0][0],arr[0][2])
+    dp[0][2]=max(arr[0][0],arr[0][1])
+    dp[0][3]=max(arr[0][0],max(arr[0][1],arr[0][2]))
+
     for day in range(len(arr)):
-        for task in range(3):
-            if 
+        for last in range(4):#here the prev activity 0,1,2 and 3 if no acitivity
+            maxi=0
+            for task in range(3):
+                if task!=last:
+                    activity=arr[day][task]+dp[day-1][last]
+                    maxi=max(activity,maxi)
+            dp[day][last]=maxi
+    print(dp[len(arr)-1][3])
