@@ -61,7 +61,7 @@ if __name__=="__main__":
             maxi=0
             for task in range(3):
                 if task!=last:
-                    activity=arr[day][task]+dp[day-1][task]
+                    activity=arr[day][task]+dp[day-1][task]# we so no consequetive are same so we ake forbidden of that 
                     maxi=max(activity,maxi)
             dp[day][last]=maxi
     print(dp[len(arr)-1][3])
