@@ -32,22 +32,26 @@ Explanation:
 
 """
 def pathfinding(arr):
+    dp=[[-1]*len(arr[0]) for _ in range(len(arr))]
     def backtracking(ind,next):
+        if arr[ind][next] == 1:
+            return 0
         if ind==0 and next ==0:
-            return 1
-        if ind<0 and next <0:
+            return 1 #their is a slight change we need to make  make sure the first base should be wheather it is 0 or 1 if the first value is 1 we cannot do anything just return 0
+        if ind<0 or next <0:
             return 0
-        if arr[ind][next]==1:
-            return 0
-        up=backtracking(ind-1,next)
-        left=backtracking(ind,next-1)
-        return up+left
+        if dp[ind][next]!=-1:
+            return dp[ind][next]
+        if arr[ind][next]==0:
+            up=backtracking(ind-1,next)
+            left=backtracking(ind,next-1)
+            dp[ind][next] = up+left
+            return dp[ind][next]
     return backtracking(len(arr)-1,len(arr[0])-1)    
 if __name__=="__main__":
     m=int(input("enter the row"))
     n=int(input("enter the coloumn"))
     arr=[]
-    dict1={"name":"johan","age":18,"ph_no":None}
     for i in range(m):
         row=list(map(int,input().split(" ")))
         arr.append(row)
