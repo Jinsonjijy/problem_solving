@@ -31,13 +31,27 @@ Explanation:
 
 
 """
+def pathfinding(arr):
+    def backtracking(ind,next):
+        if ind==0 and next ==0:
+            return 1
+        if ind<0 and next <0:
+            return 0
+        if arr[ind][next]==1:
+            return 0
+        up=backtracking(ind-1,next)
+        left=backtracking(ind,next-1)
+        return up+left
+    return backtracking(len(arr)-1,len(arr[0])-1)    
 if __name__=="__main__":
     m=int(input("enter the row"))
     n=int(input("enter the coloumn"))
     arr=[]
     dict1={"name":"johan","age":18,"ph_no":None}
-    # for i in range(m):
-    #     row=list(map(int,input().split(" ")))
-    #     arr.append(row)
-    #     row=[]
-    # print(**arr,sep="\n")
+    for i in range(m):
+        row=list(map(int,input().split(" ")))
+        arr.append(row)
+        row=[]
+    print(*arr,sep="\n")
+    print(pathfinding(arr))
+    
