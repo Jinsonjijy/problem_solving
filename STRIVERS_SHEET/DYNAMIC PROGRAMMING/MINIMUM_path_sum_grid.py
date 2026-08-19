@@ -21,8 +21,18 @@ def min_path(arr):
     sum1=0
     def backtracking(ind,next,sum1):
         if ind==0 and next ==0:
+            sum1+=arr[0][0]
             return sum1
+        if ind<0 or next <0:
+            return 0
+        if arr[ind-1][next]<arr[ind][next-1]:
+            sum1+=arr[ind][next]
+            return backtracking(ind-1,next,sum1)
+        elif arr[ind-1][next]>arr[ind][next-1]:
 
+            sum1+=arr[ind][next]
+            return backtracking(ind,next-1,sum1)
+    return backtracking(len(arr)-1,len(arr[0])-1,sum1)
 
 if __name__=="__main__":
     m=int(input("enter the row"))
@@ -34,3 +44,4 @@ if __name__=="__main__":
         arr.append(row)
         row=[]
     print(*arr,sep="\n")
+    print(min_path(arr))
