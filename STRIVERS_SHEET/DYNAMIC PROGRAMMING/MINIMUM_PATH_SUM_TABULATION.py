@@ -40,6 +40,7 @@ if __name__=="__main__":
                     left+=dp[i][j-1]
                 else:
                     left+=float("inf")
+                    """  this is doing because when ever the pointer is at bounder it may take the min adjascent element not out of boundary"""
             dp[i][j]=min(up,left)
 
 
