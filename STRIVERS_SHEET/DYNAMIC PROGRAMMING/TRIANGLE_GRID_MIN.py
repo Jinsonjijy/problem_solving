@@ -17,18 +17,6 @@ Output: -42
 Explanation : One possible route can be:
 Start at 1st row -> bottom-right -> bottom-right -> bottom-right
 """
-def min_path(arr):
-    dp=[[-1]*len(arr) for _ in range(len(arr))]
-    def backtracking(i,j):
-        if i==len(arr)-1:
-            return arr[i][j]
-        if dp[i][j]!=-1:
-            return dp[i][j]
-        d=arr[i][j]+backtracking(i+1,j)
-        dg=arr[i][j]+backtracking(i+1,j+1)
-        dp[i][j] = min(d,dg)
-        return dp[i][j]
-    return backtracking(0,0)
 if __name__=="__main__":
     arr=[]
     n=int(input("enter the row"))
@@ -36,7 +24,6 @@ if __name__=="__main__":
         row=list(map(int,input().split(" ")))
         arr.append(row)
         row=[]
-    print(min_path(arr))
     dp = [[0] * len(arr) for _ in range(len(arr))]
     for j in range(len(arr)):
         dp[len(arr) - 1][j] = arr[len(arr) - 1][j]
