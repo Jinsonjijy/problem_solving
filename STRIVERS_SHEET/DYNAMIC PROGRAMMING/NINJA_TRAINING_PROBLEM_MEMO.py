@@ -59,7 +59,7 @@ def training(arr):
                 point=arr[day][task]+backtracking(day-1,task)
                 maxi=max(point,maxi)
         dp[day][last]=maxi
-        return dp[day][last]
+        return dp[day][last]#always store in the dependent indexes
     return backtracking(len(arr)-1,3)
 
 

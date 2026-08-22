@@ -1,3 +1,4 @@
+from HOUSE_ROBBERS_2 import rob
 """
 Maximum sum of non-adjacent elements (DP 5)
 
@@ -31,3 +32,4 @@ if __name__=="__main__":
         no_pick=dp[i-1] #if we dont take the curr elelent then take previous element
         dp[i]=max(pick,no_pick)
     print(dp[len(arr)-1])
+    print(rob(arr))# this is the memoization method calling of house_robber_problem_2

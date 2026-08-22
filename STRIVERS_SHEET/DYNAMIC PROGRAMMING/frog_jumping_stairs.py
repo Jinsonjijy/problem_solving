@@ -34,7 +34,7 @@ def climbing(ind,height,dp):
     if dp[ind]!=-1:
         return dp[ind]
     left=climbing(ind-1,height,dp)+abs(height[ind]-height[ind-1])
-    right=float("+inf")
+    right=float("+inf")# it is a edge case if confused take a dry run on the index 2
     if ind>1:
         right=climbing(ind-2,height,dp)+abs(height[ind]-height[ind-2])
 
