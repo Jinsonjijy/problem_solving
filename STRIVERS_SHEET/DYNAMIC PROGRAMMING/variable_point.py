@@ -1,7 +1,7 @@
 # """"""
 # this is a varibale starting point and varible end Problem
 # def path_finding(arr):
-
+from VARIALBEPOINT_MIN_MAX_PATH_TABULATION import min_pathfinding
 def max_path_finding(arr):
     dp=[[-1]*len(arr[0]) for _ in range(len(arr))]
     def backtracking(i,j):
@@ -31,3 +31,4 @@ if __name__=="__main__":
         row=[]
     print(*arr,sep="\n")
     print(max_path_finding(arr))
+    print(min_pathfinding(arr))

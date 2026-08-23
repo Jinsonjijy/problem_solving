@@ -40,7 +40,7 @@ def pathfinding(m,n):
         if ind==0 and next ==0:
             return 1
         if ind<0 or next<0:
-            return 0
+            return 0 # if we reach any boundary side
         if dp[ind][next]!=-1:
             return dp[ind][next]
         up = backtracking(ind-1,next,dp)
