@@ -46,3 +46,11 @@ Both robots cannot move outside of the grid at any moment.
 Both robots should reach the bottom row in grid.
 
 """
+
+if __name__=="__main__":
+    arr=[]
+    n=int(input("enter the row"))
+    for i in range(n):
+        row=list(map(int,input().split(" ")))
+        arr.append(row)
+        row=[]
