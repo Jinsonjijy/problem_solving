@@ -46,6 +46,7 @@ Both robots cannot move outside of the grid at any moment.
 Both robots should reach the bottom row in grid.
 
 """
+
 def max_value_finding(arr):
     m=len(arr)
     n=len(arr[0])
@@ -54,7 +55,7 @@ def max_value_finding(arr):
         if j1 < 0 or j1 >= n or j2 < 0 or j2 >= n:
             return float("-inf")
         if dp[i][j1]!=-1:
-            
+            return            
         if i==len(arr)-1:
             if j1==j2:
                 return arr[i][j1]
@@ -70,6 +71,9 @@ def max_value_finding(arr):
                 maxi=max(maxi,ans)
         return maxi
     return backtracking(0,0,n-1)
+
+
+
 if __name__=="__main__":
     arr=[]
     n=int(input("enter the row"))
@@ -77,4 +81,5 @@ if __name__=="__main__":
         row=list(map(int,input().split(" ")))
         arr.append(row)
         row=[]
+
     print(max_value_finding(arr))
