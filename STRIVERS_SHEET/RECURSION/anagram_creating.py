@@ -4,7 +4,7 @@ def anagram_creating(name):
     print(dict_name)
     res=[]
     def backtracking(v):
-        if len(v)>=3:
+        if len(v)==len(name):
             res.append(""+str(v.copy()))
             return
         for val in sorted(dict_name):
