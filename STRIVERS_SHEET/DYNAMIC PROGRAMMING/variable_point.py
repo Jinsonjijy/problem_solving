@@ -10,7 +10,7 @@ def max_path_finding(arr):
         if i==0:
             return arr[0][j]
         if dp[i][j]!=-1:
-            return dp[i][j]
+            return dp[i][i]
         ul=arr[i][j]+backtracking(i-1,j-1)
         u=arr[i][j]+backtracking(i-1,j)
         ur=arr[i][j]+backtracking(i-1,j+1)
