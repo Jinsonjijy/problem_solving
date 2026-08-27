@@ -49,13 +49,13 @@ Both robots should reach the bottom row in grid.
 def max_value_finding(arr):
     m=len(arr)
     n=len(arr[0])
-    dp=[[[-1]*n for _ in range(n)] for _ in range(m)]
+    dp=[[-1]*n for _ in range(m)]
     def backtracking(i,j1,j2):
         if j1 < 0 or j1 >= n or j2 < 0 or j2 >= n:
             return float("-inf")
         if dp[i][j1][j2]!=-1:
             return dp[i][j1][j2]
-
+            
         if i==len(arr)-1:
             if j1==j2:
                 return arr[i][j1]
@@ -68,10 +68,8 @@ def max_value_finding(arr):
                     ans=arr[i][j2]+backtracking(i+1,j1+di,j2+dj)
                 else:
                     ans=arr[i][j1]+arr[i][j2]+backtracking(i+1,j1+di,j2+dj)
-                maxi=max(maxi,ans)
-        dp[i][j1][j2] = maxi
+                dp[i][j1][j2]=max(maxi,ans)
         return dp[i][j1][j2]
-
     return backtracking(0,0,n-1)
 if __name__=="__main__":
     arr=[]

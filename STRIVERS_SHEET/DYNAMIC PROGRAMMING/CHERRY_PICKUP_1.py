@@ -32,23 +32,34 @@ Input: grid = [[1,1,-1],[1,-1,1],[-1,1,1]]
 Output: 0
 """
 def cherry_pickup(arr):
-    def backtracking(i,j):
-        if i==n-1 and j==n-1:
-            if arr[i][j]!=-1:
-                return arr[i][j]
-            else:
-                return
-
-        if i>n-1 or j>n-1:
+    n=len(arr)
+    def backtracking(i1,j1,i2):
+        j2=i1+j1-i2
+        if 0>i1 or i1>n-1 or 0>j1 or j1>n-1 or 0>i2 or i2>n-1 or 0>j2 or j2>n-1:
             return float("-inf")
-        if arr[i][j]==-1:
-            return 0
+        if arr[i1][j1]==-1 or arr[i2][j2]==-1:
+            return float("-inf")
+
+        if i1==n-1 and j1==n-1:
+            return arr[i1][j1]
+        cherry=0
+        if i1==i2 and j1==j2 :
+            cherry=arr[i1][j1]
+        else:
+            cherry=arr[i1][j1]+arr[i2][j2]
+        # lets write the combination for each one
+        rr=backtracking(i1,j1+1,i2)
+        rd=backtracking(i1,j1+1,i2+1)
+        dr=backtracking(i1+1,j1,i2)
+        dd=backtracking(i1+1,j1,i2+1)
+        return cherry+max(rr,rd,dr,dd)
+    res=backtracking(0,0,0)
+    if res==float("-inf"):
+        return 0
+    else:
+        return res
 
 
-        right=arr[i][j]+backtracking(i,j+1)
-        down=arr[i][j]+backtracking(i+1,j)
-        return max(right,down)
-    return backtracking(0,0)
 if __name__=="__main__":
     n=int(input("enter the row"))
     arr=[]
