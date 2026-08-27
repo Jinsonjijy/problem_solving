@@ -33,10 +33,13 @@ Output: 0
 """
 def cherry_pickup(arr):
     n=len(arr)
+    dp=[[[-1]*n for _ in range(n)]for _ in range(n)]
     def backtracking(i1,j1,i2):
         j2=i1+j1-i2
         if 0>i1 or i1>n-1 or 0>j1 or j1>n-1 or 0>i2 or i2>n-1 or 0>j2 or j2>n-1:
             return float("-inf")
+        if dp[i1][j1][i2]!=-1:
+            return dp[i1][j1][i2]
         if arr[i1][j1]==-1 or arr[i2][j2]==-1:
             return float("-inf")
 
