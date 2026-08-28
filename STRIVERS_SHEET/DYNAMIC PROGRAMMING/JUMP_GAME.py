@@ -24,6 +24,15 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum jump 
 
 
 """
+def greedy_approach(arr):
+    n=len(arr)
+    far=0
+    for i in range(n):
+        if i>far:return False
+        far=max(far,i+arr[i])
+        if far>=n-1:
+            return True
+    return True
 
 
 
@@ -45,6 +54,8 @@ def finding_path(arr):
 
         dp[ind]=False
         return False
+    return backtracking(0)
 if __name__=="__main__":
-    arr=map(int,input().split(" "))
-    finding_path(arr)
+    arr=list(map(int,input().split(" ")))
+    print(finding_path(arr))
+    print(greedy_approach(arr))
