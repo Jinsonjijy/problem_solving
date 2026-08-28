@@ -32,6 +32,25 @@ Input: grid = [[1,1,-1],[1,-1,1],[-1,1,1]]
 Output: 0
 this is a tabulation method
 """
+def cherry_pack(arr):
+    n=len(arr)
+    dp=[[[0]*n for _ in range(n)]for _ in range(n)]
+
+    dp[n-1][n-1][n-1]=arr[n-1][n-1]
+    for i1 in range(n-2,-1,-1):
+        for j1 in range(n-1,-1,-1):
+            for i2 in range(n-1,-1,-1):
+                if i1==n-1 and j1==n-1 and i2==n-1:
+                    continue
+                j2=i1+j1-i2
+                if i1==i2 and j1==j2:
+                    cherry=arr[i1][j1]
+                else:
+                    cherry=arr[i1][j1]+arr[i2][j2]
+                    # lets write the combination
+                dd=dp[i1+1][j1][i2+1] if i1+1 >
+
+
 if __name__=="__main__":
     n=int(input("enter the row"))
     arr=[]
