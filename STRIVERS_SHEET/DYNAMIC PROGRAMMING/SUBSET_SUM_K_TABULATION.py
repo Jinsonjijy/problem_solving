@@ -20,25 +20,21 @@ Output : false
 Explanation : Possible subsets and their sums: [1] → 1, [2] → 2, [5] → 5, [1,2] → 3, [1,5] → 6, [2,5] → 7, [1,2,5] → 8. None of them equal 4, so the answer is false
 
 """
-# to implement the memoization we need a dp with the constrains as the limits
-def subarray_sum_k(arr,k):
-    dp=[[-1]*((10**3)+1) for _ in range((10**3)+1)]
-
-    def backtracking(ind,target):
-        if target == arr[ind]:
-            return True
-        if ind==0:
-            return arr[0]==target
-        if dp[ind][target]!=-1:
-            return dp[ind][target]
-        no_take=backtracking(ind-1,target)
-        take=backtracking(ind-1,target-arr[ind]) if arr[ind]<target else False
-        dp[ind][target]= no_take or take
-        return dp[ind][target]
-    return backtracking(len(arr)-1,k)
-
-if __name__=="__main__":
-    arr=list(map(int,input().split(" ")))
+# it is a tabulation approach
+def tabulation_subset_sum(arr,k):
     n=len(arr)
-    k=int(input("enter the sum:"))
-    print(subarray_sum_k(arr,k))
+    dp=[[False]*(k+1) for _ in range(n)]
+    for i in range(n):
+        dp[i][0]=True
+    if arr[0]<=k:
+        dp[0][arr[0]]=True
+    for i in range(1,n):
+        for j in range(1,k+1):
+            no_take=dp[i-1][j]
+            take=False
+            if arr[i]<=j:
+                take=dp[i-1][j-arr[i]]
+            dp[i][j]=no_take or take
+    return dp[n-1][k]
+if __name__=="__main__":
+    print(tabulation_subset_sum([1,2,3],5))
