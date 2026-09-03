@@ -20,10 +20,9 @@ if __name__=="__main__":
     n=len(arr)
     k=int(input("enter the target"))
     dp=[[0]*(k+1) for _ in range(n)]
-    for i in range(n):
-        dp[i][0]=1
+    dp[0][0]=1
     if arr[0]<=k:
-        dp[i][arr[0]]=1
+        dp[0][arr[0]]=1
     for i in range(1,n):
         for j in range(1,k+1):
             no_pick=dp[i-1][j]
