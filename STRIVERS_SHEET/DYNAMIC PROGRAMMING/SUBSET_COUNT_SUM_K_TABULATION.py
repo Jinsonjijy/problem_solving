@@ -23,7 +23,7 @@ if __name__=="__main__":
     dp[0][0]=1
     if arr[0]<=k:
         dp[0][arr[0]]=1
-    for i in range(1,n):
+    for i in range(1,n): #just implemented the memo code to tabulation
         for j in range(1,k+1):
             no_pick=dp[i-1][j]
             pick=0
