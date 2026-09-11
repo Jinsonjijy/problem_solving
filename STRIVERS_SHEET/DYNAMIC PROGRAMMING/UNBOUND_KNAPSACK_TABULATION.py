@@ -19,29 +19,31 @@ Output: 6
 Explanation:We can take item with weight 1 (value 2) three times , total value = 6.
 Taking weight 2 (value 4) plus weight 1 (value 2) also gives 6. No combination yields more than 6.
 """
-def unbound_knapsack(wt,val,bag):
-    n=len(wt)
-    dp=[[-1]*(bag+1) for _ in range(n)]
-
-    def backtracking(ind,w):
-        if w==0:
-            return 0
-        if ind ==0 :
-            if wt[0]<=w:
-                return val[ind]*(w//wt[ind])
-            else:
-                return float("-inf")
-        if dp[ind][w]!=-1:
-            return dp[ind][w]
-        no_take=0+backtracking(ind-1,w)
-        take=float("-inf")
-        if wt[ind]<=w:
-            take=val[ind]+backtracking(ind,w-wt[ind])
-        dp[ind][w] = max(take,no_take)
-        return dp[ind][w]
-    return  backtracking(n-1,bag)
+""" in this i am also stress testing my pc ram usage for this computation 
+example:
+   wt: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+   val:3 7 12 15 20 24 28 31 35 39 42 47 50 55 59 63 68 71 76 80
+    target:5000000
+"""
+import time
 if __name__=="__main__":
     wt=list(map(int,input().split(" ")))
     val=list(map(int,input().split(" ")))
-    bag=int(input("bag_capacity:"))
-    print(unbound_knapsack(wt,val,bag))
+    bag=int(input("bag capacity"))
+    n=len(wt)
+    start_time=time.perf_counter()
+    dp=[[0]*(bag+1) for _ in range(n)]
+    for w in range(bag+1):
+        if wt[0]<=w:
+            dp[0][w]=val[0]*(w//wt[0])
+    for ind in range(1,n):
+        for w in range(0,bag+1):
+            no_take=dp[ind-1][w]
+            take=0
+            if wt[ind]<=w:
+                take=val[ind]+dp[ind][w-wt[ind]]
+            dp[ind][w]=max(take,no_take)
+    end_time=time.perf_counter()
+    total_time=end_time-start_time
+    print("maximum is :",dp[n-1][bag])
+    print(f" total time requiered : {total_time:.6f} seconds")
