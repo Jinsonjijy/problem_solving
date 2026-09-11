@@ -19,6 +19,7 @@ Output: 6
 Explanation:We can take item with weight 1 (value 2) three times , total value = 6.
 Taking weight 2 (value 4) plus weight 1 (value 2) also gives 6. No combination yields more than 6.
 """
+import time
 def unbound_knapsack(wt,val,bag):
     n=len(wt)
     dp=[[-1]*(bag+1) for _ in range(n)]
@@ -44,4 +45,8 @@ if __name__=="__main__":
     wt=list(map(int,input().split(" ")))
     val=list(map(int,input().split(" ")))
     bag=int(input("bag_capacity:"))
+    start_time=time.perf_counter()
     print(unbound_knapsack(wt,val,bag))
+    end_time=time.perf_counter()
+    total_time=end_time-start_time
+    print(f"Time need :{total_time:.6f}sec")
