@@ -44,7 +44,7 @@ over commed the overlapping subproblem
 def training(arr):
     dp=[[-1]*4]*len(arr)
     def backtracking(day,last):
-        if day ==0:
+        if day == 0:
             maxi=0
             for task in range(0,3):
                 if task!=last:
