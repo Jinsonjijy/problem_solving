@@ -1,5 +1,10 @@
 """
 implementing SINGLY LINKED LIST
+referring resource:"https://takeuforward.org/blogs/data-structure-and-algorithm/singly-linked-list"
+
+
+
+
 """
 class node:
     data:int
@@ -46,7 +51,7 @@ def insert_kth_position(head,x,position):
     k=0
     curr=head
     while curr:
-        if k==position:
+        if k+1==position:
             n.next=curr.next
             curr.next=n
             return head
@@ -54,14 +59,17 @@ def insert_kth_position(head,x,position):
         curr=curr.next
 
 
-n1=node(int(input()))
-n2=node(int(input()))
-n3=node(int(input()))
-n1.next=n2
-n2.next=n3
-head=n1
-
-head=insert_begin(head,input())
-head=insert_end(head,input())
-head=insert_kth_position(head,input("enter data"),int(input("enter position")))
-traversal(head)
+head=None
+while True:
+    print(f"1 for traversal \n 2 for insertion at begin \n 3 for insertion at end \n 4 for insertion at k")
+    choice=input("enter choice")
+    if choice=="1":
+        traversal(head)
+    elif choice=="2":
+        head=insert_begin(head,input())
+    elif choice=="3":
+        head=insert_end(head,input())
+    elif choice=="4":
+        head=insert_kth_position(head,input("data:"),int(input("position")))
+    else:
+        break
