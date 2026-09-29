@@ -1,15 +1,25 @@
 """
 implementing upper bound
 """
-def upper_bound(arr,target):
+def floor_ceil(arr,target):
     n=len(arr)
     l,r=0,n-1
-    ans=-1
+    floor=-1
+    ceil=-1
     while l<=r:
         mid=(l+r)//2
-        if arr[mid]>target:
-            ans=arr[mid]
-            r=mid-1
+        if arr[mid]==target:
+            return arr[mid],arr[mid]
+        elif arr[mid]<target:
+            #finding the  floor which is lesser
+            floor=arr[mid]
+            l=mid+1 
+            #checking any number on right  side which is greater
         else:
-            l=mid+1
-    return ans
+            ceil=arr[mid]
+            r=mid-1
+            # checking any value left side 
+    return floor,ceil
+arr=list(map(int,input().split(" ")))
+target=int(input("target:"))
+print(floor_ceil(arr,target))
