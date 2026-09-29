@@ -28,6 +28,15 @@ class stack_array:
         return self.stack[self.top]
     def isEmpty(self):
         return self.top==-1
+    def itrating(self):
+        if self.top==-1:
+            print("stack is empty")
+            return
+        print(*self.stack,sep="->")
 if __name__=="__main__":
     stack=stack_array(10)
-    stack.push
+    stack.push(10)
+    stack.push(39)
+    stack.push(36)
+    stack.itrating()
+    print(stack.top_element())
