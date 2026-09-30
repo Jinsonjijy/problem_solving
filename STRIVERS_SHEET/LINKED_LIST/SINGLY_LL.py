@@ -70,6 +70,6 @@ while True:
     elif choice=="3":
         head=insert_end(head,input())
     elif choice=="4":
-        head=insert_kth_position(head,input("data:"),int(input("position")))
+        head=insert_kth_position(head,input("data:"),int(input("position:")))
     else:
         break
