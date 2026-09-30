@@ -95,17 +95,19 @@ while True:
     print(f"1 for traversal \n 2 for insertion at begin \n 3 for insertion at end \n 4 for insertion at k \n 5 for delete at begin\n 6 for deletion at end")
     
     choice=input("enter choice")
-    if choice=="1":
+    if choice == "1":
         traversal(head)
-    elif choice=="2":
+    elif choice == "2":
         head=insert_begin(head,input())
-    elif choice=="3":
+    elif choice == "3":
         head=insert_end(head,input())
-    elif choice=="4":
+    elif choice == "4":
         head=insert_kth_position(head,input("data:"),int(input("position:")))
-    elif choice=="5":
+    elif choice == "5":
         head=delete_begin(head)
     elif choice == "6":
         head=delete_end(head)
+    elif choice == "7":
+        head=delete_k_position(head,int(input("Position")))
     else:
         break
