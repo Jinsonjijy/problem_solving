@@ -58,10 +58,42 @@ def insert_kth_position(head,x,position):
         k+=1
         curr=curr.next
 
+def delete_begin(head):
+    if head == None:
+        print("No data")
+        return head
+    curr=head
+    head=curr.next
+    curr.next=None
+    return head
+def delete_end(head):
+    if head == None:
+        print("No data ")
+        return head
+    if head.next == None:
+        return None
+    curr=head
+    while curr:
+        if curr.next.next == None:
+            curr.next=None
+            return head
+        curr=curr.next
+def delete_k_position(head,position):
+    if position==0:
+        return delete_begin(head)
+    k=0
+    curr=head
+    while curr:
+        if k+1 == position:
+            curr.next=curr.next.next
+            return head
+        
+        curr=curr.next
 
 head=None
 while True:
-    print(f"1 for traversal \n 2 for insertion at begin \n 3 for insertion at end \n 4 for insertion at k")
+    print(f"1 for traversal \n 2 for insertion at begin \n 3 for insertion at end \n 4 for insertion at k \n 5 for delete at begin\n 6 for deletion at end")
+    
     choice=input("enter choice")
     if choice=="1":
         traversal(head)
@@ -71,5 +103,9 @@ while True:
         head=insert_end(head,input())
     elif choice=="4":
         head=insert_kth_position(head,input("data:"),int(input("position:")))
+    elif choice=="5":
+        head=delete_begin(head)
+    elif choice == "6":
+        head=delete_end(head)
     else:
         break
