@@ -1,7 +1,6 @@
 """
     implementing the first occurance ans last occurance of a array
 """
-def first_last(arr,target):
     
     
 if __name__=="__main__":
