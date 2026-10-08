@@ -3,6 +3,7 @@
     quick point is define two binnary search one for first and which look for left side
     another binnary search which is for last in the right side
 """
+
 def first_find(arr,target):
     n=len(arr)
     l=0
