@@ -37,21 +37,47 @@ def insert_after(head,target,data):
     if head is None:
         print("insertion is not possible")
         return head
-    n=node(data=data)  
     curr=head
     while curr:
         if curr.data==target:
-            break
-        if curr.next==None:
-            break
+            n=node(data)
+            n.next=curr.next
+            n.prev=curr
+
+            if curr.next is not  None:
+                curr.next.prev=n
+            curr.next=n
+            return head
         curr=curr.next
-    n.next=curr.next
-    curr.next.prev=n
-    n.prev=curr
-    curr.next=n
+    print("target not found")
     return head
+def insert_before(head,target,data):
+    if head is None:
+        print("insertion is possible")
+        return head
+    curr=head
+    if head.data==target:
+        return insert_begin(head,data)
 
-
+    while curr.next:
+        if curr.next.data==target:
+            n=node(data)
+            n.next=curr.next
+            curr.next.prev=n
+            n.prev=curr
+            curr.next=n
+            return head
+        curr=curr.next
+    print("target is not found")
+    return head
+def delete_begin(head):
+    if head is None:
+        print("deletion is not possible")
+        return head
+    head=head.next
+    if head is not None:
+        head.prev=None
+    return head
 
         
 
