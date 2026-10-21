@@ -43,4 +43,5 @@ if __name__=="__main__":
     second_ind=find_occurance(arr,target,True)
     if first_ind==-1:
         print("no occurance:")
-    print(f" occurance :{second_ind-first_ind+1}")
+    else:
+        print(f" occurance :{second_ind-first_ind+1}")

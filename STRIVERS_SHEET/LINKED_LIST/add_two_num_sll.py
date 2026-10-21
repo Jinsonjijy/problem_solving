@@ -42,15 +42,18 @@ def sum_two_numbers(l1,l2):
     curr=l1
     num1=""
     while curr:
-        num1+=curr.data
+        num1+=str(curr.data)
+        curr=curr.next
     num1=num1[::-1]
     curr=l2
     num2=""
     while curr:
-        num2+=curr.data
+        num2+=str(curr.data)
+        curr=curr.next
+
     num2=num2[::-1]
     num2=int(num2)+int(num1)
-    temp=num2
+    temp=num2# just for storing
     dummy=nodes(0)
     curr=dummy
     while num2:
@@ -59,9 +62,21 @@ def sum_two_numbers(l1,l2):
         curr.next=n
         curr=n
         num2=num2//10
-    head=dummy.next
+    head=dummy
     return head
 if __name__=="__main__":
-    
+    n1=nodes(5)
+    n2=nodes(4)
+    n1.next=n2
+    head1=n1
+    n3=nodes(7)
+    n4=nodes(9)
+    n3.next=n4
+    head2=n3
+    head=sum_two_numbers(head1,head2)
+    curr=head
+    while curr:
+        print(curr.data,end="")
+        curr=curr.next
 
 
