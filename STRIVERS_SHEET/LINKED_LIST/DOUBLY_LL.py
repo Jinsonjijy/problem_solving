@@ -78,9 +78,39 @@ def delete_begin(head):
     if head is not None:
         head.prev=None
     return head
+def delete_end(head):
+    if head is None:
+        print("deletion is not possible")
+        return head
+    if head.next==None:
+        head=None
+        return head
+    curr=head
+    while curr.next.next:
+        curr=curr.next
+    curr.next=None
+    return head
+def delete_value(head,target):
+    if head is None:
+        print("deletion is not possible")
+        return head
+    if head.data==target :
+        head=head.next
+        if head is not None:
+            head.prev=None
 
+        return None
+    curr=head
+    while curr.next:
+        if curr.next.data==target:
+            curr.next=curr.next.next
+            if curr.next is not None:
+                curr.next.prev=curr
+            return head
+        curr=curr.next
         
-
+    print("value not found")
+    return head
 def traversal(head):
     curr=head
     while curr:
