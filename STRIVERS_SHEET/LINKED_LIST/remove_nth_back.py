@@ -16,6 +16,7 @@ Output: 4 -> 3 -> 2 -> 1
 
 Explanation: The 5th node from the back is the first node.
 """
+from reverse_linked_list import reverse_ll
 class Node:
     def __init__(self,data):
         self.data=data
@@ -60,4 +61,6 @@ if __name__=="__main__":
     while curr:
         print(curr.data,end="->")
         curr=curr.next
+
+    head=reverse_ll(head)
 
