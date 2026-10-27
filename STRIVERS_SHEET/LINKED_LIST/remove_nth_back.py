@@ -27,7 +27,21 @@ def remove_nth_node(l1,n):
     while curr:
         count+=1
         curr=curr.next
-    
+    position=count-n
+    if position == 0:
+        return head.next
+
+    curr=head
+    c=0
+    while curr:
+        c += 1
+        if position==c:
+            curr.next=curr.next.next
+
+        curr=curr.next
+    return head
+
+
 
 
 
@@ -41,4 +55,9 @@ if __name__=="__main__":
         curr.next=node
         curr=curr.next
     n=int(input("enter the position"))
-    remove_nth_node(dummy.next,n)
+    head = remove_nth_node(dummy.next,n)
+    curr=head
+    while curr:
+        print(curr.data,end="->")
+        curr=curr.next
+
